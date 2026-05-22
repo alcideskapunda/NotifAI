@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NotifAI.API/NotifAI.API.csproj" />
+    <Project Path="src/NotifAI.Shared/NotifAI.Shared.csproj" />
+    <Project Path="src/NotifAI.Worker/NotifAI.Worker.csproj" />
+  </Folder>
+</Solution>
