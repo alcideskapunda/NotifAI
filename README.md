@@ -20,7 +20,7 @@ O sistema é dividido em dois microsserviços principais utilizando o padrão de
 
 ## 🛠️ Tecnologias e Conceitos Aplicados
 
-- **C# 14 & .NET 10** (Minimal APIs, Worker Services)
+- **C# 14 & .NET 10** (Controllers API's, Worker Services)
 - **Programação Assíncrona** (Async/Await avançado)
 - **Injeção de Dependência Nativa**
 - **AWS SDK para .NET** (AWSSDK.DynamoDBv2, AWSSDK.SQS)
