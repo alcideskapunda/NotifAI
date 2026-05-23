@@ -1,0 +1,17 @@
+services:
+  localstack:
+    container_name: localstack_notifai
+    image: localstack/localstack:latest
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - SERVICES=sqs,dynamodb
+      - AWS_DEFAULT_REGION=us-east-1
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
+    volumes:
+      - ./aws-init:/etc/localstack/init/ready.d
+      - localstack_data:/var/lib/localstack
+    restart: unless-stopped
+
+volumes:
+  localstack_data:
