@@ -1,18 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-NotifAI.Worker-8c759e58-123c-4d8b-ae8c-9817e451f267</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.4.1" />
     <PackageReference Include="AWSSDK.SQS" Version="4.0.2.32" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.7" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\NotifAI.Shared\NotifAI.Shared.csproj" />
   </ItemGroup>
