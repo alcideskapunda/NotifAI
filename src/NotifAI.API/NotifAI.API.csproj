@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>710579c4-f367-4fb4-93df-a82489b09a84</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.18.5" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.4.1" />
+    <PackageReference Include="AWSSDK.SQS" Version="4.0.2.32" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.7" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\NotifAI.Shared\NotifAI.Shared.csproj" />
   </ItemGroup>
-
 </Project>

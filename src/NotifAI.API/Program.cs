@@ -1,14 +1,22 @@
+using Amazon.DynamoDBv2;
+using Amazon.SQS;
+using FluentValidation;
+using NotifAI.Shared;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddScoped<IValidator<Transaction>, TransactionValidator>();
+
+var awsOptions = builder.Configuration.GetAWSOptions();
+
+builder.Services.AddAWSService<IAmazonDynamoDB>(awsOptions);
+builder.Services.AddAWSService<IAmazonSQS>(awsOptions);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

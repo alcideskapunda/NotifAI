@@ -57,3 +57,26 @@ dotnet run
 cd src/NotifAI.Worker
 dotnet run
 ```
+
+## 🛡️ Resiliência e Tratamento de Erros
+
+Para garantir que o sistema seja tolerante a falhas (padrão de produção), o Worker foi desenhado com as seguintes premissas:
+
+- **Garantia de Descarte Prévio**: O processamento de mensagens possui tratamento contra `JsonException` e payloads nulos. Caso uma mensagem corrompida chegue à fila, o sistema regista o erro no log e remove-a da fila, evitando loops infinitos de processamento (_Poison Messages_).
+- **Idempotência e Polling**: O Worker utiliza _Long Polling_ (`WaitTimeSeconds = 20`) para otimizar o consumo de CPU e chamadas de rede ao LocalStack/SQS, aguardando que novas mensagens fiquem disponíveis de forma eficiente.
+
+---
+
+## 🧪 Exemplo de Payload para Teste (Postman / cURL)
+
+Para testar o endpoint `POST /api/transactions`, utilize a seguinte estrutura JSON:
+
+```json
+{
+  "id": "tx_9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  "clientId": "cli_77fa2843-1102-4ef8-bc10-ef54c2565ebd",
+  "amount": 250.75,
+  "description": "Pagamento de Licença de Software",
+  "createdAt": "2026-05-24T11:00:00Z"
+}
+```
